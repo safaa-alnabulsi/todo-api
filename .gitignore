@@ -1,0 +1,21 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+ 
+# Coverage directory
+coverage
+
+# build / generate output
+/dist
+
+# misc
+.DS_Store
+/.idea
+/.vscode
+
+
+# Output of 'npm pack'
+*.tgz
+
+nodemon.json
