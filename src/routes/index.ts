@@ -6,7 +6,7 @@ import {
   addTodo,
   updateTodo,
   deleteTodo,
-  patchTodo
+  patchTodo,
 } from "../controllers/index.js";
 
 const router: Router = Router();
