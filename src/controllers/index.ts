@@ -20,7 +20,6 @@ async function getTodos(req: Request, res: Response): Promise<void> {
 
 /**
  * Get one Todo item
- * 200 for success, 404 for not found
  * @param req
  * @param res
  */
@@ -41,7 +40,6 @@ async function getTodo(req: Request, res: Response): Promise<void> {
 
 /**
  * Add new Todo item
- * 201 for success (created), 404 for not found
  * @param req
  * @param res
  */
@@ -68,7 +66,6 @@ async function addTodo(req: Request, res: Response): Promise<void> {
 
 /**
  * Update existing Todo item
- * TODO: cover the usecase of item doesn't exist and return the proper http code
  * @param req
  * @param res
  */
@@ -86,7 +83,37 @@ async function updateTodo(req: Request, res: Response): Promise<void> {
       });
     } else {
       res.send(HttpStatusCode.NO_CONTENT).json({
-        message: "Todo item to be deleted wasn't found",
+        message: "Todo item wasn't found",
+      });
+    }
+  } catch (err) {
+    throw err;
+  }
+}
+
+/**
+ * Mark an existing _todo_ as complete: update the status to "true"
+ * @param req
+ * @param res
+ */
+async function patchTodo(req: Request, res: Response): Promise<void> {
+  try {
+    const id = req.params.id;
+    const completedTodo = await Todo.findByIdAndUpdate(
+      { _id: id },
+      {
+        status: "true",
+      }
+    );
+
+    if (completedTodo != null) {
+      res.send(HttpStatusCode.ACCEPTED).json({
+        message: "Todo item has been marked as completed successfully",
+        todo: completedTodo,
+      });
+    } else {
+      res.send(HttpStatusCode.NO_CONTENT).json({
+        message: "Todo item wasn't found",
       });
     }
   } catch (err) {
@@ -112,7 +139,7 @@ async function deleteTodo(req: Request, res: Response): Promise<void> {
       });
     } else {
       res.send(HttpStatusCode.NO_CONTENT).json({
-        message: "Todo item to be deleted wasn't found",
+        message: "Todo item wasn't found",
         todo: deletedTodo,
       });
     }
@@ -121,4 +148,4 @@ async function deleteTodo(req: Request, res: Response): Promise<void> {
   }
 }
 
-export { getTodos, getTodo, addTodo, updateTodo, deleteTodo };
+export { getTodos, getTodo, addTodo, updateTodo, patchTodo, deleteTodo };

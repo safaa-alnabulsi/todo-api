@@ -6,6 +6,7 @@ import {
   addTodo,
   updateTodo,
   deleteTodo,
+  patchTodo
 } from "../controllers/index.js";
 
 const router: Router = Router();
@@ -20,6 +21,8 @@ router.post("/todos", addTodo);
 router.put("/todos/:id", updateTodo);
 
 router.delete("/todos/:id", deleteTodo);
+
+router.patch("/todos/:id", patchTodo);
 
 // redirects
 router.get("/", (req, res) => {
