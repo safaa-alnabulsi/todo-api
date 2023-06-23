@@ -1,12 +1,18 @@
 /* eslint-disable import/no-unresolved */
 import cors from "cors";
 import express, { Express } from "express";
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 import router from "./routes/index.js";
+import bodyParser from "body-parser";
 
 const app: Express = express();
 
 const PORT: string | Number = process.env.PORT || 4000;
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 
 app.use(cors());
 app.use(router);

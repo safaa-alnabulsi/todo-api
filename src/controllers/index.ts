@@ -4,10 +4,10 @@ import Todo from "../models/todo.js";
 import ITodo from "../types/todo.js";
 /**
  * Get list of all Todo items
- * @param req 
- * @param res 
+ * @param req
+ * @param res
  */
-export async function getTodos(req: Request, res: Response): Promise<void> {
+async function getTodos(req: Request, res: Response): Promise<void> {
   try {
     const todos: ITodo[] = await Todo.find();
     res.status(200).send({ todos });
@@ -19,39 +19,104 @@ export async function getTodos(req: Request, res: Response): Promise<void> {
 /**
  * Get one Todo item
  * 200 for success, 404 for not found
- * @param req 
- * @param res 
+ * @param req
+ * @param res
  */
-export async function getTodo(req: Request, res: Response): Promise<void>{
+async function getTodo(req: Request, res: Response): Promise<void> {
+  try {
+    const id = req.params.id;
+    const todo: ITodo | null = await Todo.findById(id);
 
+    if (todo != null) {
+      res.status(200).send({ todo });
+    } else {
+      res.status(404);
+    }
+  } catch (err) {
+    throw err;
+  }
 }
 
 /**
  * Add new Todo item
  * 201 for success (created), 404 for not found
- * @param req 
- * @param res 
+ * @param req
+ * @param res
  */
-export async function addTodo(req: Request, res: Response): Promise<void> {
+async function addTodo(req: Request, res: Response): Promise<void> {
+  try {
+    const body = req.body as ITodo;
 
+    const todo: ITodo = new Todo({
+      name: body.name,
+      description: body.description,
+      status: body.status,
+    });
+
+    const newTodo = await todo.save();
+
+    res.status(201).json({
+      message: "Todo item has been added successfully",
+      todo: newTodo,
+    });
+  } catch (err) {
+    throw err;
+  }
 }
 
 /**
  * Update existing Todo item
  * TODO: cover the usecase of item doesn't exist and return the proper http code
- * @param req 
- * @param res 
+ * @param req
+ * @param res
  */
-export async function updateTodo(req: Request, res: Response): Promise<void>{
+async function updateTodo(req: Request, res: Response): Promise<void> {
+  try {
+    const id = req.params.id;
+    const body = req.body;
 
+    const updatedTodo = await Todo.findByIdAndUpdate({ _id: id }, body);
+
+    if (updatedTodo != null) {
+      res.send(202).json({
+        message: "Todo item has been updated successfully",
+        todo: updatedTodo,
+      });
+    } else {
+      res.send(204).json({
+        message: "Todo item to be deleted wasn't found",
+      });
+    }
+  } catch (err) {
+    throw err;
+  }
 }
 
 /**
  * Delete Todo item
- * TODO: cover the usecase of item doesn't exist and return the proper http code
- * @param req 
- * @param res 
+ * @param req
+ * @param res
  */
-export async function deleteTodo(req: Request, res: Response): Promise<void>{
+async function deleteTodo(req: Request, res: Response): Promise<void> {
+  try {
+    const id = req.params.id;
 
+    const deletedTodo: ITodo | null = await Todo.findByIdAndDelete({ _id: id });
+
+    if (deletedTodo != null) {
+      res.send(202).json({
+        message: "Todo item has been deleted successfully",
+        todo: deletedTodo,
+      });
+    } else {
+      res.send(204).json({
+        message: "Todo item to be deleted wasn't found",
+        todo: deletedTodo,
+      });
+    }
+  } catch (error) {
+    throw error;
+  }
 }
+
+export { getTodos, getTodo, addTodo, updateTodo, deleteTodo };
