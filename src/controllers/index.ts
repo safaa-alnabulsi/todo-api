@@ -2,6 +2,8 @@
 import { Request, Response } from "express";
 import Todo from "../models/todo.js";
 import ITodo from "../types/todo.js";
+import HttpStatusCode from "../types/http_status_codes.js";
+
 /**
  * Get list of all Todo items
  * @param req
@@ -10,7 +12,7 @@ import ITodo from "../types/todo.js";
 async function getTodos(req: Request, res: Response): Promise<void> {
   try {
     const todos: ITodo[] = await Todo.find();
-    res.status(200).send({ todos });
+    res.status(HttpStatusCode.OK).send({ todos });
   } catch (err) {
     throw err;
   }
@@ -28,9 +30,9 @@ async function getTodo(req: Request, res: Response): Promise<void> {
     const todo: ITodo | null = await Todo.findById(id);
 
     if (todo != null) {
-      res.status(200).send({ todo });
+      res.status(HttpStatusCode.OK).send({ todo });
     } else {
-      res.status(404);
+      res.status(HttpStatusCode.NOT_FOUND);
     }
   } catch (err) {
     throw err;
@@ -55,7 +57,7 @@ async function addTodo(req: Request, res: Response): Promise<void> {
 
     const newTodo = await todo.save();
 
-    res.status(201).json({
+    res.status(HttpStatusCode.CREATED).json({
       message: "Todo item has been added successfully",
       todo: newTodo,
     });
@@ -78,12 +80,12 @@ async function updateTodo(req: Request, res: Response): Promise<void> {
     const updatedTodo = await Todo.findByIdAndUpdate({ _id: id }, body);
 
     if (updatedTodo != null) {
-      res.send(202).json({
+      res.send(HttpStatusCode.ACCEPTED).json({
         message: "Todo item has been updated successfully",
         todo: updatedTodo,
       });
     } else {
-      res.send(204).json({
+      res.send(HttpStatusCode.NO_CONTENT).json({
         message: "Todo item to be deleted wasn't found",
       });
     }
@@ -104,12 +106,12 @@ async function deleteTodo(req: Request, res: Response): Promise<void> {
     const deletedTodo: ITodo | null = await Todo.findByIdAndDelete({ _id: id });
 
     if (deletedTodo != null) {
-      res.send(202).json({
+      res.send(HttpStatusCode.ACCEPTED).json({
         message: "Todo item has been deleted successfully",
         todo: deletedTodo,
       });
     } else {
-      res.send(204).json({
+      res.send(HttpStatusCode.NO_CONTENT).json({
         message: "Todo item to be deleted wasn't found",
         todo: deletedTodo,
       });
