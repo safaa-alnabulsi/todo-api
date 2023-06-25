@@ -11,6 +11,10 @@ import {
 
 const router: Router = Router();
 
+router.get("/hello", (req, res) => {
+  res.status(200).send("hello world");
+});
+
 // main endpoints
 router.get("/todos", getTodos);
 

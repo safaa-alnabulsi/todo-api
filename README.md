@@ -44,3 +44,4 @@ A simple example of a RESTful API that handles TODO list of items. It's built us
 
 - mongoose: https://mongoosejs.com/
 - express: https://expressjs.com
+- supertest: https://yarnpkg.com/package/supertest
