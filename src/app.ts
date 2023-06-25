@@ -1,9 +1,9 @@
 /* eslint-disable import/no-unresolved */
 import cors from "cors";
 import express, { Express } from "express";
-import mongoose from "mongoose";
 import router from "./routes/index.js";
 import bodyParser from "body-parser";
+import { DbWrapper } from "./database/dbWrapper.js";
 
 const app: Express = express();
 
@@ -17,14 +17,16 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(router);
 
-const uri: string = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@clustertodo.wthbrcr.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`;
-mongoose
-  .connect(uri, {})
-  .then(() =>
-    app.listen(PORT, () =>
-      console.log(`Server running on http://localhost:${PORT}`)
-    )
-  )
-  .catch((error: Error) => {
-    throw error;
-  });
+// Get environment variables
+const dbName: string = process.env.MONGO_DB || "";
+const dbUser: string = process.env.MONGO_USER || "";
+const dbPass: string = process.env.MONGO_PASSWORD || "";
+
+// Connect to the database
+const db: DbWrapper = new DbWrapper(dbName, dbUser, dbPass);
+await db.connect();
+
+// start the API server
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);
