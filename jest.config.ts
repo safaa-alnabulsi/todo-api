@@ -15,6 +15,7 @@ const config: JestConfigWithTsJest = {
     ],
   },
   workerIdleMemoryLimit: "500M",
+  testTimeout: 20000,
 };
 
 export default config;

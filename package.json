@@ -12,7 +12,7 @@
     "clean": "rm -rf dist/",
     "build": " yarn clean && tsc -p tsconfig.json",
     "start": "concurrently \"tsc -w\" \"nodemon --enable-source-maps --experimental-modules dist/app.js\"",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "yarn build && NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
@@ -25,6 +25,7 @@
     "jest": "^29.5.0",
     "nodemon": "^2.0.22",
     "sinon": "^15.2.0",
+    "sinon-mongoose": "^2.3.0",
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
