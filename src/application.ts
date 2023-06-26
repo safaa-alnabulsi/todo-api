@@ -38,11 +38,8 @@ export class Application {
 
   public async stop() {
     await this.dbWrapper.disconnect();
-    process.on("SIGTERM", () => {
-      console.log("SIGTERM signal received: closing HTTP server");
-      this.server.close(() => {
-        console.log("HTTP server closed");
-      });
+    this.server.close(() => {
+      console.log("Server closed");
     });
   }
 }
