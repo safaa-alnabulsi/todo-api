@@ -10,4 +10,4 @@ updates:
       - npm
     commit-message:
       prefix: "build :package:"
-      scope: "dependencies"
+      include: "scope"
