@@ -47,3 +47,5 @@ A simple example of a RESTful API that handles TODO list of items. It's built us
 - supertest: https://yarnpkg.com/package/supertest
 - sinon-mongoose: https://www.npmjs.com/package/sinon-mongoose 
 - mocking mongoose: https://getsimple.works/how-to-stub-mongoose-methods-and-mock-document-objects
+- Dependabot: https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
+- Automating Dependabot with Github Action: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
