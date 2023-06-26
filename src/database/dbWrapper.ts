@@ -21,6 +21,11 @@ class DbWrapper {
   public async connect(): Promise<typeof mongoose> {
     return await mongoose.connect(this.uri, {});
   }
+
+  public async disconnect(): Promise<void> {
+    await mongoose.connection.close();
+    await mongoose.disconnect();
+  }
 }
 
 export default DbWrapper;
