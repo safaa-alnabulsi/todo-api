@@ -11,8 +11,9 @@ import {
 
 const router: Router = Router();
 
+// simple endpoint example
 router.get("/hello", (req, res) => {
-  res.status(200).send("hello world");
+  res.status(200).json("hello world");
 });
 
 // main endpoints
