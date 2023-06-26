@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-export class DbWrapper {
-  private uri: string;
+class DbWrapper {
+  public uri: string;
   private clusterName: string;
   private user: string;
   private password: string;
@@ -11,6 +11,7 @@ export class DbWrapper {
     this.user = user;
     this.password = password;
     this.uri = this.buildURI();
+    console.log("URI from inside the class: ", this.uri);
   }
 
   private buildURI(): string {
@@ -21,3 +22,5 @@ export class DbWrapper {
     return await mongoose.connect(this.uri, {});
   }
 }
+
+export default DbWrapper;
