@@ -76,4 +76,17 @@ describe("Test GET All TODOs /todos Endpoint ", () => {
     expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.body).toEqual({ todos: todos });
   });
+
+  it("should return an empty list of todos when table is empty", async () => {
+    TodoMock.expects("find").resolves([]);
+
+    const response = await request(app).get("/todos");
+
+    TodoMock.verify();
+    TodoMock.restore();
+
+    expect(response.status).toEqual(200);
+    expect(response.headers["content-type"]).toMatch(/json/);
+    expect(response.body).toEqual({ todos: [] });
+  });
 });
