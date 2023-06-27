@@ -49,3 +49,8 @@ A simple example of a RESTful API that handles TODO list of items. It's built us
 - mocking mongoose: https://getsimple.works/how-to-stub-mongoose-methods-and-mock-document-objects
 - Dependabot: https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
 - Automating Dependabot with Github Action: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
+- semnatic-release:
+  - https://www.npmjs.com/package/semantic-release
+  - https://yarnpkg.com/package/semantic-release
+  - plugins: https://github.com/semantic-release/semantic-release/blob/HEAD/docs/usage/plugins.md
+  
