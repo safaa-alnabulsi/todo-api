@@ -1,16 +1,3 @@
-# [2.0.0](https://github.com/safaa-alnabulsi/todo-api/compare/v1.4.1...v2.0.0) (2023-06-28)
-
-
-### Performance Improvements
-
-* **pencil:** remove graphiteWidth option ([d72000c](https://github.com/safaa-alnabulsi/todo-api/commit/d72000caa801075baecb82a656c963161b92b251))
-
-
-### BREAKING CHANGES
-
-* **pencil:** trying their example from the docs.
-https://github.com/semantic-release/semantic-release#commit-message-format
-
 ## [1.4.1](https://github.com/safaa-alnabulsi/todo-api/compare/v1.4.0...v1.4.1) (2023-06-28)
 
 
