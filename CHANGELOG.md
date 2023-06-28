@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/safaa-alnabulsi/todo-api/compare/v1.4.0...v1.4.1) (2023-06-28)
+
+
+### Performance Improvements
+
+* :test_tube: commit for pure test: test major release - test with performance prefix ([a710a91](https://github.com/safaa-alnabulsi/todo-api/commit/a710a9143224ead5444f19d5416e56c61c2de737))
+
 # [1.4.0](https://github.com/safaa-alnabulsi/todo-api/compare/v1.3.1...v1.4.0) (2023-06-28)
 
 
