@@ -56,3 +56,5 @@ A simple example of a RESTful API that handles TODO list of items. It's built us
 - https://github.com/semantic-release/commit-analyzer
 
 - commit for pure test: test major release - test with BREAKING CHANGE
+Note: Your commits must be formatted exactly as specified by the chosen convention. For example the Angular Commit Message Conventions require the BREAKING CHANGE keyword to be followed by a colon (:) and to be in the footer of the commit message.
+let's try again
