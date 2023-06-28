@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/safaa-alnabulsi/todo-api/compare/v1.4.2...v2.0.0) (2023-06-28)
+
+
+### Performance Improvements
+
+* **pencil:** this commit will create a major breaking release ([494dd20](https://github.com/safaa-alnabulsi/todo-api/commit/494dd20a79364e0bed48fe912a543afed94e67ed))
+
+
+### BREAKING CHANGES
+
+* **pencil:** this has to be in the body in this exact format.
+
 ## [1.4.2](https://github.com/safaa-alnabulsi/todo-api/compare/v1.4.1...v1.4.2) (2023-06-28)
 
 ## [1.4.1](https://github.com/safaa-alnabulsi/todo-api/compare/v1.4.0...v1.4.1) (2023-06-28)
