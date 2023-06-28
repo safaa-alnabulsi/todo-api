@@ -55,4 +55,4 @@ A simple example of a RESTful API that handles TODO list of items. It's built us
   - plugins: https://github.com/semantic-release/semantic-release/blob/HEAD/docs/usage/plugins.md
 - https://github.com/semantic-release/commit-analyzer
 
-- test patch release
+- commit for pure test: test patch release
