@@ -54,3 +54,5 @@ A simple example of a RESTful API that handles TODO list of items. It's built us
   - https://yarnpkg.com/package/semantic-release
   - plugins: https://github.com/semantic-release/semantic-release/blob/HEAD/docs/usage/plugins.md
 
+
+- test patch release
