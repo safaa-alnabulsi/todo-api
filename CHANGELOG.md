@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/safaa-alnabulsi/todo-api/compare/v1.3.1...v1.4.0) (2023-06-28)
+
+
+### Features
+
+* **README:** :test_tube: commit for pure test: test minor release ([9b98e92](https://github.com/safaa-alnabulsi/todo-api/commit/9b98e92258284e688452c5f281efbc173058dc27))
+
 ## [1.3.1](https://github.com/safaa-alnabulsi/todo-api/compare/v1.3.0...v1.3.1) (2023-06-28)
 
 # [1.3.0](https://github.com/safaa-alnabulsi/todo-api/compare/v1.2.0...v1.3.0) (2023-06-28)
