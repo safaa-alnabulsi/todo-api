@@ -10,7 +10,7 @@
   "private": false,
   "scripts": {
     "clean": "rm -rf dist/",
-    "build": " yarn clean && yarn lint && tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
     "start": "concurrently \"tsc -w\" \"nodemon --enable-source-maps --experimental-modules dist/app.js\"",
     "test": "yarn build && NODE_OPTIONS=--experimental-vm-modules jest",
     "lint": "eslint . --ext .ts",
