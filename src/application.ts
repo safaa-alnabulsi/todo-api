@@ -6,12 +6,12 @@ import { Server, IncomingMessage, ServerResponse } from "http";
 
 export class Application {
   private router: Router;
-  private port: string | Number;
+  private port: string | number;
   public app: express.Application;
   private server: Server<typeof IncomingMessage, typeof ServerResponse>;
   private dbWrapper: DbWrapper;
 
-  constructor(router: Router, port: string | Number, dbWrapper: DbWrapper) {
+  constructor(router: Router, port: string | number, dbWrapper: DbWrapper) {
     this.port = port;
     this.router = router;
     this.dbWrapper = dbWrapper;

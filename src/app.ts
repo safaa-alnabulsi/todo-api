@@ -3,7 +3,7 @@ import DbWrapper from "./database/dbWrapper.js";
 import router from "./routes/index.js";
 
 // Get environment variables
-const port: string | Number = process.env.PORT || 4000;
+const port: string | number = process.env.PORT || 4000;
 const dbName: string = process.env.MONGO_DB || "";
 const dbUser: string = process.env.MONGO_USER || "";
 const dbPass: string = process.env.MONGO_PASSWORD || "";

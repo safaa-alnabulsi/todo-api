@@ -13,7 +13,7 @@ let mongoDBConnectStub: sinon.SinonStub<
   Promise<typeof mongoose>
 >;
 
-let todos = [
+const todos = [
   {
     _id: "6495ad459747087bbe24729c",
     name: "todo1",
