@@ -54,6 +54,7 @@ A simple example of a RESTful API that handles TODO list of items. It's built us
   - https://yarnpkg.com/package/semantic-release
   - plugins: https://github.com/semantic-release/semantic-release/blob/HEAD/docs/usage/plugins.md
 - https://github.com/semantic-release/commit-analyzer
+- eslint: https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/
 
 - commit for pure test: test major release - test with BREAKING CHANGE
 Note: Your commits must be formatted exactly as specified by the chosen convention. For example the Angular Commit Message Conventions require the BREAKING CHANGE keyword to be followed by a colon (:) and to be in the footer of the commit message.
