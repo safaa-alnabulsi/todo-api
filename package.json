@@ -10,9 +10,11 @@
   "private": false,
   "scripts": {
     "clean": "rm -rf dist/",
-    "build": " yarn clean && tsc -p tsconfig.json",
+    "build": " yarn clean && yarn lint && tsc -p tsconfig.json",
     "start": "concurrently \"tsc -w\" \"nodemon --enable-source-maps --experimental-modules dist/app.js\"",
     "test": "yarn build && NODE_OPTIONS=--experimental-vm-modules jest",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint . --ext .ts --fix",
     "release": "standard-version",
     "semantic-release": "semantic-release"
   },
@@ -41,8 +43,11 @@
   },
   "dependencies": {
     "@types/jest": "^29.5.2",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "eslint": "^8.43.0",
     "express": "^4.18.2",
     "mongoose": "^7.3.1"
   },
