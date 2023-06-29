@@ -14,19 +14,6 @@
 # [2.1.0](https://github.com/safaa-alnabulsi/todo-api/compare/v2.0.0...v2.1.0) (2023-06-29)
 
 
-### Bug Fixes
-
-* :white_check_mark: remove linting and cleaning dist from yarn build ([49e0cf8](https://github.com/safaa-alnabulsi/todo-api/commit/49e0cf8e78ade86c6402c1170cc55b6e1ad40801))
-
-
-### Features
-
-* :green_heart: add yarn test to the release workflow ([95e5539](https://github.com/safaa-alnabulsi/todo-api/commit/95e55396d2d1b7eb8cc6eb488392045570d5ddd0))
-* 🎨 add eslint ([dbafc2e](https://github.com/safaa-alnabulsi/todo-api/commit/dbafc2e6fa97b6208fb25acf641efd66bb60fc17))
-
-# [2.1.0](https://github.com/safaa-alnabulsi/todo-api/compare/v2.0.0...v2.1.0) (2023-06-29)
-
-
 ### Features
 
 * :art: add eslint ([5b3e505](https://github.com/safaa-alnabulsi/todo-api/commit/5b3e505a4dce9b221f63ff5a356d45200f40b990))
