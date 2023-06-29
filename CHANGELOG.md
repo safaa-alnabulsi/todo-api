@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/safaa-alnabulsi/todo-api/compare/v2.0.0...v2.1.0) (2023-06-29)
+
+
+### Features
+
+* :art: add eslint ([5b3e505](https://github.com/safaa-alnabulsi/todo-api/commit/5b3e505a4dce9b221f63ff5a356d45200f40b990))
+
 # [2.0.0](https://github.com/safaa-alnabulsi/todo-api/compare/v1.4.2...v2.0.0) (2023-06-28)
 
 
