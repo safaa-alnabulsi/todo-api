@@ -19,3 +19,6 @@ coverage
 *.tgz
 
 nodemon.json
+*.jpg
+*.png
+yarn-error.log
