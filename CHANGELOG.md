@@ -1,3 +1,5 @@
+## [2.1.1](https://github.com/safaa-alnabulsi/todo-api/compare/v2.1.0...v2.1.1) (2023-07-04)
+
 # [2.1.0](https://github.com/safaa-alnabulsi/todo-api/compare/v2.0.0...v2.1.0) (2023-06-29)
 
 
