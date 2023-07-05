@@ -40,6 +40,14 @@ A simple example of a RESTful API that handles TODO list of items. It's built us
 | `PATCH`  | `/todos/:id` | Mark an existing _todo_ as complete |
 | `DELETE` | `/todos/:id` | Delete existing _todo_              |
 
+## TODO next
+
+To add the following: 
+
+- Authentication
+- Etags
+- JSON Schema
+
 ## References
 
 - mongoose: https://mongoosejs.com/
