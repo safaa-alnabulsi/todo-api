@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/safaa-alnabulsi/todo-api/compare/v2.1.1...v2.2.0) (2023-07-05)
+
+
+### Bug Fixes
+
+* :art: remove useless try/catch which always throws ([50dd192](https://github.com/safaa-alnabulsi/todo-api/commit/50dd19295293ffef4e37bf282bece762335282a2))
+
+
+### Features
+
+* add more tests to cover other endpoints ([bad508b](https://github.com/safaa-alnabulsi/todo-api/commit/bad508b5c47e27e6adf90d012b86b8e5b8eb78fb))
+
 ## [2.1.1](https://github.com/safaa-alnabulsi/todo-api/compare/v2.1.0...v2.1.1) (2023-07-04)
 
 # [2.1.0](https://github.com/safaa-alnabulsi/todo-api/compare/v2.0.0...v2.1.0) (2023-06-29)
