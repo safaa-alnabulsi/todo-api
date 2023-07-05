@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 /* eslint-disable import/no-unresolved */
 import { Request, Response } from "express";
 import Todo from "../models/todo.js";
@@ -10,12 +11,8 @@ import HttpStatusCode from "../types/http_status_codes.js";
  * @param res
  */
 async function getTodos(req: Request, res: Response): Promise<void> {
-  try {
-    const todos: ITodo[] = await Todo.find();
-    res.status(HttpStatusCode.OK).send({ todos });
-  } catch (err) {
-    throw err;
-  }
+  const todos: ITodo[] = await Todo.find();
+  res.status(HttpStatusCode.OK).send({ todos });
 }
 
 /**
@@ -24,17 +21,13 @@ async function getTodos(req: Request, res: Response): Promise<void> {
  * @param res
  */
 async function getTodo(req: Request, res: Response): Promise<void> {
-  try {
-    const id = req.params.id;
-    const todo: ITodo | null = await Todo.findById(id);
+  const id = req.params.id;
+  const todo: ITodo | null = await Todo.findById(id);
 
-    if (todo != null) {
-      res.status(HttpStatusCode.OK).send({ todo });
-    } else {
-      res.status(HttpStatusCode.NOT_FOUND);
-    }
-  } catch (err) {
-    throw err;
+  if (todo != null) {
+    res.status(HttpStatusCode.OK).send({ todo });
+  } else {
+    res.status(HttpStatusCode.NOT_FOUND);
   }
 }
 
@@ -44,24 +37,20 @@ async function getTodo(req: Request, res: Response): Promise<void> {
  * @param res
  */
 async function addTodo(req: Request, res: Response): Promise<void> {
-  try {
-    const body = req.body as ITodo;
+  const body = req.body as ITodo;
 
-    const todo: ITodo = new Todo({
-      name: body.name,
-      description: body.description,
-      status: body.status,
-    });
+  const todo: ITodo = new Todo({
+    name: body.name,
+    description: body.description,
+    status: body.status,
+  });
 
-    const newTodo = await todo.save();
+  const newTodo = await todo.save();
 
-    res.status(HttpStatusCode.CREATED).json({
-      message: "Todo item has been added successfully",
-      todo: newTodo,
-    });
-  } catch (err) {
-    throw err;
-  }
+  res.status(HttpStatusCode.CREATED).send({
+    message: "Todo item has been added successfully",
+    todo: newTodo,
+  });
 }
 
 /**
@@ -70,24 +59,20 @@ async function addTodo(req: Request, res: Response): Promise<void> {
  * @param res
  */
 async function updateTodo(req: Request, res: Response): Promise<void> {
-  try {
-    const id = req.params.id;
-    const body = req.body;
+  const id = req.params.id;
+  const body = req.body;
 
-    const updatedTodo = await Todo.findByIdAndUpdate({ _id: id }, body);
+  const updatedTodo = await Todo.findByIdAndUpdate({ _id: id }, body);
 
-    if (updatedTodo != null) {
-      res.send(HttpStatusCode.ACCEPTED).json({
-        message: "Todo item has been updated successfully",
-        todo: updatedTodo,
-      });
-    } else {
-      res.send(HttpStatusCode.NO_CONTENT).json({
-        message: "Todo item wasn't found",
-      });
-    }
-  } catch (err) {
-    throw err;
+  if (updatedTodo != null) {
+    res.status(HttpStatusCode.ACCEPTED).json({
+      message: "Todo item has been updated successfully",
+      todo: updatedTodo,
+    });
+  } else {
+    res.status(HttpStatusCode.NO_CONTENT).json({
+      message: "Todo item wasn't found",
+    });
   }
 }
 
@@ -97,27 +82,23 @@ async function updateTodo(req: Request, res: Response): Promise<void> {
  * @param res
  */
 async function patchTodo(req: Request, res: Response): Promise<void> {
-  try {
-    const id = req.params.id;
-    const completedTodo = await Todo.findByIdAndUpdate(
-      { _id: id },
-      {
-        status: "true",
-      }
-    );
-
-    if (completedTodo != null) {
-      res.send(HttpStatusCode.ACCEPTED).json({
-        message: "Todo item has been marked as completed successfully",
-        todo: completedTodo,
-      });
-    } else {
-      res.send(HttpStatusCode.NO_CONTENT).json({
-        message: "Todo item wasn't found",
-      });
+  const id = req.params.id;
+  const completedTodo = await Todo.findByIdAndUpdate(
+    { _id: id },
+    {
+      status: "true",
     }
-  } catch (err) {
-    throw err;
+  );
+
+  if (completedTodo != null) {
+    res.status(HttpStatusCode.ACCEPTED).send({
+      message: "Todo item has been marked as completed successfully",
+      todo: completedTodo,
+    });
+  } else {
+    res.status(HttpStatusCode.NO_CONTENT).send({
+      message: "Todo item wasn't found",
+    });
   }
 }
 
@@ -127,24 +108,20 @@ async function patchTodo(req: Request, res: Response): Promise<void> {
  * @param res
  */
 async function deleteTodo(req: Request, res: Response): Promise<void> {
-  try {
-    const id = req.params.id;
+  const id = req.params.id;
 
-    const deletedTodo: ITodo | null = await Todo.findByIdAndDelete({ _id: id });
+  const deletedTodo: ITodo | null = await Todo.findByIdAndDelete({ _id: id });
 
-    if (deletedTodo != null) {
-      res.send(HttpStatusCode.ACCEPTED).json({
-        message: "Todo item has been deleted successfully",
-        todo: deletedTodo,
-      });
-    } else {
-      res.send(HttpStatusCode.NO_CONTENT).json({
-        message: "Todo item wasn't found",
-        todo: deletedTodo,
-      });
-    }
-  } catch (error) {
-    throw error;
+  if (deletedTodo != null) {
+    res.status(HttpStatusCode.ACCEPTED).send({
+      message: "Todo item has been deleted successfully",
+      todo: deletedTodo,
+    });
+  } else {
+    res.status(HttpStatusCode.NO_CONTENT).send({
+      message: "Todo item wasn't found",
+      todo: deletedTodo,
+    });
   }
 }
 
