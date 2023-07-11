@@ -42,7 +42,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@types/jest": "^29.5.2",
+    "@types/jest": "^29.5.3",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.61.0",
     "body-parser": "^1.20.2",
