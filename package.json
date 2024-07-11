@@ -37,7 +37,7 @@
     "sinon": "^18.0.0",
     "sinon-mongoose": "^2.3.0",
     "supertest": "^7.0.0",
-    "ts-jest": "^29.2.0",
+    "ts-jest": "^29.2.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   },
