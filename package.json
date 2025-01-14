@@ -49,7 +49,7 @@
     "cors": "^2.8.5",
     "eslint": "^8.57.1",
     "express": "^4.21.2",
-    "mongoose": "^8.9.4"
+    "mongoose": "^8.9.5"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
