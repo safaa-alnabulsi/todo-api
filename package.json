@@ -47,7 +47,7 @@
     "@typescript-eslint/parser": "^8.32.1",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "eslint": "^9.26.0",
+    "eslint": "^9.27.0",
     "express": "^5.1.0",
     "mongoose": "^8.14.3"
   },
